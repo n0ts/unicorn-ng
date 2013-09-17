@@ -33,7 +33,10 @@ action :create do
     bundle_gemfile = new_resource.bundle_gemfile || "#{new_resource.rails_root}/Gemfile"
 
     if new_resource.variables.empty?
-      variables :config         => config,
+      variables :name           => new_resource.name,
+                :desc           => new_resource.desc,
+                :unicorn_exec   => new_resource.unicorn_exec,
+                :config         => config,
                 :bundle_gemfile => bundle_gemfile,
                 :pidfile        => pidfile,
                 :wrapper        => new_resource.wrapper,
@@ -50,7 +53,7 @@ action :create do
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 
 
-  service 'unicorn' do
+  service new_resource.name do
     supports :restart => true, :status => true, :reload => true
     action [ :enable, :start ]
     only_if "which #{new_resource.bundle}"

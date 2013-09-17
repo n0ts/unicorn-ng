@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          unicorn
+# Provides:          <%= @name %>
 # Required-Start:    $local_fs $remote_fs $network $syslog
 # Required-Stop:     $local_fs $remote_fs $network $syslog
 # Default-Start:     2 3 4 5
@@ -13,7 +13,7 @@
 export BUNDLE_GEMFILE="<%= @bundle_gemfile %>"
 
 DAEMON="<%= @bundle %>"
-DAEMON_OPTS="exec unicorn -D -E <%= @environment %> -c <%= @config %>"
+DAEMON_OPTS="exec <%= @unicorn_exec %> -D -E <%= @environment %> -c <%= @config %>"
 
 <% if @wrapper %>
 WRAPPER="<%= @wrapper %>"
@@ -29,8 +29,8 @@ LANG="<%= @locale %>"
 LC_ALL="<%= @locale %>"
 LANGUAGE="<%= @locale %>"
 
-NAME=unicorn
-DESC=unicorn
+NAME="<%= @name %>"
+DESC="<%= @desc %>"
 
 . /lib/lsb/init-functions
 

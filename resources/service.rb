@@ -22,6 +22,9 @@ actions        :create
 default_action :create
 
 attribute :rails_root,     :kind_of => String, :name_attribute => true
+attribute :name,           :kind_of => String, :default => node['unicorn-ng']['service']['name']
+attribute :desc,           :kind_of => String, :default => node['unicorn-ng']['service']['desc']
+attribute :unicorn_exec,   :kind_of => String, :default => node['unicorn-ng']['service']['unicorn']
 attribute :config,         :kind_of => String, :default => node['unicorn-ng']['service']['config']
 attribute :pidfile,        :kind_of => String, :default => node['unicorn-ng']['service']['pidfile']
 attribute :bundle_gemfile, :kind_of => String, :default => node['unicorn-ng']['service']['bundle_gemfile']

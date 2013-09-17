@@ -22,6 +22,9 @@ default['unicorn-ng']['service']['rails_root'] = nil
 
 # the following attributes will be set automatically
 # relative to rails_root if not specified
+default['unicorn-ng']['service']['name'] = 'unicorn'
+default['unicorn-ng']['service']['desc'] = 'unicorn'
+default['unicorn-ng']['service']['unicorn_exec'] = 'unicorn'
 default['unicorn-ng']['service']['unicorn_config'] = nil
 default['unicorn-ng']['service']['bundle_gemfile'] = nil
 default['unicorn-ng']['service']['pidfile'] = nil
