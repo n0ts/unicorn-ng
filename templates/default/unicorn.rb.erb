@@ -24,7 +24,7 @@ pidfile = <%= @pid.inspect %>
 pid pidfile
 <% end -%>
 
-<%d- if @timeout -%>
+<% if @timeout -%>
 timeout <%= @timeout.inspect %>
 <% end -%>
 
