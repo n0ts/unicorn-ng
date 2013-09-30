@@ -50,6 +50,27 @@ action :create do
     end
   end
 
+  template "/etc/logrotate.d/#{new_resource.name}" do
+    source "unicorn.logrotate.erb"
+    cookbook "unicorn-ng"
+    owner "root"
+    group "root"
+    mode  0644
+    if new_resource.variables.empty?
+      variables :name               => new_resource.name,
+                :pidfile            => new_resource.pidfile,
+                :environment        => new_resource.environment,
+                :rails_root         => new_resource.rails_root,
+                :stderr_path        => new_resource.stderr_path,
+                :stdout_path        => new_resource.stdout_path,
+                :logrotate_rotate   => new_resource.logrotate_rotate,
+                :logrotate_compress => new_resource.logrotate_compress
+    else
+      variables new_resource.variables
+    end
+    only_if { ::FileTest.directory?("/etc/logrotate.d") }
+  end
+
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 
 
