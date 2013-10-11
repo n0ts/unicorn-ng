@@ -128,7 +128,7 @@ case "$1" in
 
   status)
     if status_of_proc -p $PIDFILE "$DAEMON" unicorn; then
-      WORKERS=$(ps ax |grep "unicorn worker" |grep -v grep |wc -l)
+      WORKERS=$(ps ax |grep "<%= @unicorn_exec %> worker" |grep -v grep |wc -l)
       log_action_msg "Current workers: $WORKERS"
       exit 0
     else
