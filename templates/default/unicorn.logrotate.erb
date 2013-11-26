@@ -7,7 +7,13 @@
 <% if @stdout_path -%>
 <%= @stdout_path %>
 <% end -%>
+<% if @rails_log and @rails_log.instance_of?(Array) -%>
+<% @rails_log.each do |log| -%>
+<%= "#{@rails_root}/#{logs}.log" %>
+<% endforeach -%>
+<% else -%>
 <%= "#{@rails_root}/#{@environment}.log" %>
+<% end -%>
 {
     daily
     missingok
