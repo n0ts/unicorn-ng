@@ -8,9 +8,9 @@
 <%= @stdout_path %>
 <% end -%>
 <% unless @rails_logs.empty? -%>
-<% @rails_logs.each do |log| -%>
+<%   @rails_logs.each do |log| -%>
 <%= "#{@rails_root}/#{log}.log" %>
-<% end -%>
+<%   end -%>
 <% else -%>
 <%= "#{@rails_root}/#{@environment}.log" %>
 <% end -%>
