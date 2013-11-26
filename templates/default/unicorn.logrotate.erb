@@ -7,7 +7,7 @@
 <% if @stdout_path -%>
 <%= @stdout_path %>
 <% end -%>
-<% if @rails_log and @rails_log.instance_of?(Array) -%>
+<% unless @rails_log.empty? -%>
 <% @rails_log.each do |log| -%>
 <%= "#{@rails_root}/#{logs}.log" %>
 <% endforeach -%>

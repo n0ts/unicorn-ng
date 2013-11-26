@@ -44,6 +44,7 @@ default['unicorn-ng']['service']['cookbook'] = 'unicorn-ng'
 default['unicorn-ng']['service']['source'] = 'unicorn.init.erb'
 default['unicorn-ng']['service']['stderr_path'] = 'log/unicorn.stderr.log'
 default['unicorn-ng']['service']['stdout_path'] = 'log/unicorn.stdout.log'
+default['unicorn-ng']['service']['rails_logs'] = []
 default['unicorn-ng']['service']['logrotate_rotate'] = 30
 default['unicorn-ng']['service']['logrotate_compress'] = true
 default['unicorn-ng']['service']['variables'] = {}

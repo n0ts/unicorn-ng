@@ -61,6 +61,7 @@ action :create do
                 :pidfile            => new_resource.pidfile,
                 :environment        => new_resource.environment,
                 :rails_root         => new_resource.rails_root,
+                :rails_logs         => new_resource.rails_logs,
                 :stderr_path        => new_resource.stderr_path,
                 :stdout_path        => new_resource.stdout_path,
                 :logrotate_rotate   => new_resource.logrotate_rotate,
