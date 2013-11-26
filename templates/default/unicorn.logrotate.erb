@@ -10,7 +10,7 @@
 <% unless @rails_logs.empty? -%>
 <% @rails_logs.each do |log| -%>
 <%= "#{@rails_root}/#{log}.log" %>
-<% endforeach -%>
+<% end -%>
 <% else -%>
 <%= "#{@rails_root}/#{@environment}.log" %>
 <% end -%>
