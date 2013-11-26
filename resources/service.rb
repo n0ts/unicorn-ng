@@ -43,6 +43,7 @@ attribute :cookbook,       :kind_of => String, :default => node['unicorn-ng']['s
 attribute :source,         :kind_of => String, :default => node['unicorn-ng']['service']['source']
 attribute :stderr_path,    :kind_of => String, :default => node['unicorn-ng']['service']['stderr_path']
 attribute :stdout_path,    :kind_of => String, :default => node['unicorn-ng']['service']['stdout_path']
+attribute :rails_logs,     :kind_of => Array, :default => node['unicorn-ng']['service']['rails_logs']
 attribute :logrotate_rotate,   :kind_of => Integer, :default => node['unicorn-ng']['service']['logrotate_rotate']
 attribute :logrotate_compress, :kind_of => [TrueClass, FalseClass], :default => node['unicorn-ng']['service']['logrotate_compress']
 attribute :variables,      :kind_of => Hash,   :default => node['unicorn-ng']['service']['variables']
