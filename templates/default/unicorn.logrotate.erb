@@ -9,10 +9,10 @@
 <% end -%>
 <% unless @rails_logs.empty? -%>
 <%   @rails_logs.each do |log| -%>
-<%= "#{@rails_root}/#{log}.log" %>
+<%= "#{@rails_root}/log/#{log}.log" %>
 <%   end -%>
 <% else -%>
-<%= "#{@rails_root}/#{@environment}.log" %>
+<%= "#{@rails_root}/log/#{@environment}.log" %>
 <% end -%>
 {
     daily
